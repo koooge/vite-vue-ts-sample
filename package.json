@@ -5,18 +5,35 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "test": "jest",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "vue": "^3.2.26"
   },
   "devDependencies": {
+    "@types/jest": "^27.4.0",
     "@vitejs/plugin-vue": "^2.0.1",
     "@vue/eslint-config-typescript": "^10.0.0",
+    "@vue/test-utils": "^2.0.0-rc.18",
+    "@vue/vue3-jest": "^27.0.0-alpha.4",
     "eslint": "^8.6.0",
     "eslint-plugin-vue": "^8.2.0",
+    "ts-jest": "^27.1.2",
     "typescript": "^4.5.4",
     "vite": "^2.7.10",
     "vue-tsc": "^0.30.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "preset": "ts-jest",
+    "moduleFileExtensions": ["js", "ts", "vue"],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "transform": {
+      "^.+\\.ts$": "ts-jest",
+      "^.+\\.vue$": "@vue/vue3-jest"
+    }
   }
 }
